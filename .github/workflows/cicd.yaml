@@ -45,3 +45,5 @@ jobs:
           docker stop django-app || true
           docker rm django-app || true
           docker run -d -p 80:8000 --name django-app asia-south1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/django-repo/django-app
+
+          echo "# updated VM_USER secret" 
