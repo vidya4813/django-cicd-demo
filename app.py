@@ -1,5 +1,15 @@
 from django.http import HttpResponse
 from django.urls import path
+from django.core.management import execute_from_command_line
+import sys
+from django.conf import settings
+
+settings.configure(
+    DEBUG=True,
+    ROOT_URLCONF=__name__,
+    SECRET_KEY='demo-secret',
+    ALLOWED_HOSTS=['*'],
+)
 
 def home(request):
     html = """
@@ -26,3 +36,6 @@ def home(request):
 urlpatterns = [
     path('', home),
 ]
+
+if __name__ == '__main__':
+    execute_from_command_line([sys.argv[0], 'runserver', '0.0.0.0:8000'])

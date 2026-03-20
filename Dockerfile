@@ -4,12 +4,9 @@ WORKDIR /app
 
 COPY . .
 
-# Upgrade pip and install Django (and other dependencies if needed)
 RUN pip install --upgrade pip
-RUN pip install django
+RUN pip install -r requirements.txt
 
-# Expose Django default port
 EXPOSE 8000
 
-# Run Django development server on all interfaces
-CMD ["python", "urls.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "app.py"]
