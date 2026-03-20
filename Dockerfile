@@ -12,4 +12,4 @@ RUN pip install django
 EXPOSE 8000
 
 # Run Django development server on all interfaces
-CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["python", "urls.py", "runserver", "0.0.0.0:8000"]
